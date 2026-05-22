@@ -1,0 +1,13 @@
+.card-container {
+    display: flex; /* Activa Flexbox */
+    flex-wrap: wrap; /* Permite que las cards se envuelvan a la siguiente línea si no caben */
+    gap: 16px; /* Espacio entre las cards */
+    justify-content: flex-start; /* Alinea las cards al inicio */
+    max-width: 100%; /* Asegura que el contenedor no exceda el ancho de la pantalla */
+}
+
+.card-container .card {
+    flex: 1 1 calc(25% - 16px); /* Cada card ocupa el 25% del contenedor menos el espacio del gap */
+    max-width: calc(25% - 16px); /* Máximo de 4 cards por fila */
+    box-sizing: border-box; /* Asegura que el padding y border no afecten el tamaño */
+}

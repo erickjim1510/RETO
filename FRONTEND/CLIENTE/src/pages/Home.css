@@ -1,0 +1,58 @@
+/* Estilos generales */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Topbar */
+.topbar {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.topbar h4 {
+    color: #fff;
+    margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #000;
+    color: #fff;
+    min-height: calc(100vh - 120px); /* Ajusta la altura */
+    padding: 20px;
+}
+
+.sidebar-link {
+    color: #fff !important;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.sidebar-link:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* MainContent */
+.main-content-area {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 120px); /* Ajusta la altura */
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.footer p {
+    margin: 0;
+}
