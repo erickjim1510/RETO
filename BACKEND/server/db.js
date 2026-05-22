@@ -5,5 +5,5 @@ export const pool = createPool({
     port:3307,
     user:"root",
     password:"Sagas123",
-    database:"dbcinema",
+    database:"roocel_servicios",
 });

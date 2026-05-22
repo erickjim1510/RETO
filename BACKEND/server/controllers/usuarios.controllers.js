@@ -4,7 +4,7 @@ import { pool } from "../db.js";
 export const getUsuario = async (req,res) => {
     try {
         console.log("Valor del email: ", req.body.email)
-        const [result] = await pool.query("select idusuario, nombre, email, idtipousuario, idestatus, apellido_paterno, apellido_materno from usuarios where email = ? and password = ? and idestatus = 1", [req.body.email,req.body.password]);
+        const [result] = await pool.query("select id_usuario, nombre, apellido_paterno, apellido_materno, datos_faciales, id_departamento, id_rol from usuarios where email = ? and password = ?", [req.body.email,req.body.password]);
 
         if (result.length <= 0) {
             return res.status(400).json({message : "Usuario o Contraseña Incorrectos" });
@@ -12,27 +12,11 @@ export const getUsuario = async (req,res) => {
 
         res.json(result)
     } catch (error) {
-        
-        return res.status(500).json({message : "Error de Conexion" });
-    }
+    console.log("ERROR REAL EN LOGIN:", error);
+    return res.status(500).json({ message: "Error de Conexion" });
+}
     
 }
-
-export const deleteUsuario = async (req,res) =>{
-    try {
-        const {idusuario} = req.body;
-        const [result] = await pool.query('DELETE FROM usuarios WHERE idusuario = ?', [idusuario]);
-
-        if (result.affectedRows === 0) {
-           return res.status(400).json({message: "No hay Usuarios para eliminar"})
-        }
-        res.json(idusuario);
-    } catch (error) {
-       return  res.status(500).json({message: "Error de Conexion"})
-    }
-
-}
-
 
  const existeEmail = async (email) => {
     console.log("Valor de email en funcion existeEmail", email);
